@@ -33,6 +33,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					event.preventDefault();
 					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 				});
+				$(".connexion").click(function(){
+						$('#connexion').toggleClass('affiche');
+				});
+				$('.close-connnexion').click(function(){
+						$('#connexion').toggleClass('affiche');	
+				});
+				$('.new-user').click(function(){
+						$('#connexion').toggleClass('affiche');						
+						$('#new-user').toggleClass('affiche');
+				});				
 			});
 </script>
 <!-- //js --><!-- swipe box js -->
@@ -62,6 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<!-- main content start-->
+    
+        <?php include 'connexion.php'; ?>
      <!--start-home-->
 	<div id="home" class="header">
 		<div class="header-top">
@@ -119,10 +131,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<span></span>
 								</span>
 							</a>
-							<a href="espaceprivee.php" class="hover-effect">
+							<a href="#" class="hover-effect connexion">
 								<span>
-									<span>ESPACE PRIVEE</span>
-									<span>ESPACE</span>
+									<span>CONNEXION</span>
+									<span>CONNEXION</span>
 									<span></span>
 								</span>
 							</a>
@@ -134,6 +146,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</nav>
 		</div>
 		<!-- //Navbar -->
+        <!--start-smooth-scrolling-->
+						<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+										
+										
+									});
+								</script>
 	<!--End-top-nav-script-->
 		<!--//end-header-->
 		<div class="clearfix"></div>
@@ -161,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <?php
 
-  $bdd = new PDO('mysql:host=localhost;dbname=snowboard', 'root', '', array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8") );
+  $bdd = new PDO('mysql:host=localhost;dbname=snowboard', 'root', 'root', array( PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8") );
 
 $sql= "SELECT * FROM longboards";
 	foreach ($bdd->query($sql) as $row) {
@@ -180,7 +210,7 @@ $sql= "SELECT * FROM longboards";
                 <div class="image-box">';
                    $html.='<a>';
                    $html.= '<img src="';
-                  // $html.=$row['imageproduit'];
+                   $html.=$row['imageproduit'];
                    $html.='" class="img-responsive"></a>
                </div>
                 <div class="text-desc">';
@@ -377,22 +407,7 @@ $sql= "SELECT * FROM longboards";
 <!-- //footer -->
 
 	<!--//main content start-->
-	<!--start-smooth-scrolling-->
-						<script type="text/javascript">
-									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear' 
-								 		};
-										*/
-										
-										$().UItoTop({ easingType: 'easeOutQuart' });
-										
-									});
-								</script>
+	
 								<!--end-smooth-scrolling-->
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //for bootstrap working -->

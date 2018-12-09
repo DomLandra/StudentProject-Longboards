@@ -42,6 +42,44 @@ body a:hover{
 	margin-top: -15em;
 	opacity: 0.9;
 }
+/*-- connexion --*/
+#connexion, #new-user{
+	background-color:rgba(51,51,51,.6);display:none;
+	height:100vh;
+	left:0;
+	position:absolute;
+	top:0;
+	width:100vw;
+	z-index:9999;
+}
+#connexion.affiche, #new-user.affiche{
+	/* display:block;*/
+	display:flex;
+	z-index:9999;
+}
+#connexion div, #new-user div {
+  	align-items: center;
+	display: flex;
+  	justify-content: center;
+	height:auto;
+	width:250px;
+	margin:auto;
+}
+#connexion label, #connexion input, #new-user label, #new-user input{
+	justify-content: center;
+	flex-direction: column;
+	align-content: center;
+	width: 100%;
+	padding: 7px 0;
+}
+.form-wrapper{
+	margin: 8px 0;
+	/*! width: 100%; */
+}
+#connexion [type="submit"]{
+margin: 15px 0; 
+}
+
 /*--header--*/
 #home {
     background: url("../images/banner.jpg") no-repeat;
@@ -51,6 +89,8 @@ body a:hover{
     -ms-background-size: cover;
     -webkit-background-size: cover;
     height:800px;
+	position:relative;
+	z-index:1;
 }
 
 #home1 {
@@ -241,7 +281,9 @@ a.hover-effect {
 .hover-effect span:nth-child(2) {
 	color: #efa004;
 }
-
+.hover-effect:last-child{
+	width: 140px;
+}
 .hover-effect span {
 	font-size: 1em;
 	letter-spacing: 3px;
